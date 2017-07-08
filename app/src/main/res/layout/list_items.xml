@@ -2,9 +2,9 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     android:padding="16dp">
 
     <TextView
@@ -15,6 +15,8 @@
         android:background="@drawable/magnitude_circle"
         android:fontFamily="sans-serif-medium"
         android:gravity="center"
+        android:paddingLeft="4dp"
+        android:paddingRight="8dp"
         android:textColor="@android:color/white"
         android:textSize="16sp"
         tools:text="8.9" />
@@ -27,15 +29,17 @@
     <TextView
         android:id="@+id/place"
         android:layout_width="wrap_content"
-        android:layout_weight="1"
         android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="8dp"
         tools:text="30km S of"/>
 
     <TextView
         android:id="@+id/place_two"
         android:layout_width="wrap_content"
-        android:layout_weight="1"
         android:layout_height="0dp"
+        android:layout_weight="1"
+        android:paddingLeft="8dp"
         tools:text="San Francisco, CA"/>
 
     </LinearLayout>
@@ -45,6 +49,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:gravity="end"
         tools:text="Mar 6, 2010" />
 
     <TextView
@@ -52,6 +57,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:gravity="end"
         tools:text="3:00 PM" />
 
 </LinearLayout>

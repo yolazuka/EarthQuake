@@ -13,34 +13,28 @@ public class Earthquake {
     private Double mMagnitude;
 
     /** Place where the Earthquake ocurres */
-    private String mPlace;
+    private String mLocation;
 
     /** Time of the earthquake */
     private long mTimeInMilliseconds;
 
-    /** magnitude colors for the circles **/
-
-    private int mMagnitudeColor;
-
-    /**get the resource color Id */
-
-    private int mMagnitudeColorResourceId;
-
+    /**
+     * Website URL of the earthquake
+     */
+    private String mUrl;
 
     /**
      * Create a new Earthquake object
      *
      * @param magnitude is the magnitude of the Seism
-     * @param place is where the Earthquake happens
+     * @param location is where the Earthquake happens
      * @param timeInMilliseconds is the date when the seism happens
      */
-    public Earthquake(Double magnitude, String place, long timeInMilliseconds, int magnitudeColor, int magnitudeColorResourceId ) {
+    public Earthquake(Double magnitude, String location, long timeInMilliseconds, String url) {
         mMagnitude = magnitude;
-        mPlace = place;
+        mLocation = location;
         mTimeInMilliseconds = timeInMilliseconds;
-        mMagnitudeColor = magnitudeColor;
-        mMagnitudeColorResourceId = magnitudeColorResourceId;
-
+        mUrl = url;
     }
 
     /**
@@ -53,8 +47,8 @@ public class Earthquake {
     /**
      * Get place where the seism ocurres
      */
-    public String getPlace() {
-        return mPlace;
+    public String getLocation() {
+        return mLocation;
     }
 
     /**
@@ -65,19 +59,10 @@ public class Earthquake {
     }
 
     /**
-     * Returns the color of the circle, according to the magnitude intensity
+     * Get place where the seism ocurres
      */
-
-    public int getMagnitudeColor()  {
-        return mMagnitudeColor;
-    }
-
-    /**
-     * Returns the color of the circle color resource, according to the magnitude intensity
-     */
-
-    public int getMagnitudeColorResourceId()  {
-        return mMagnitudeColorResourceId;
+    public String getUlr() {
+        return mUrl;
     }
 
 }

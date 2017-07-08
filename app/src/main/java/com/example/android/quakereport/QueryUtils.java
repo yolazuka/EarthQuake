@@ -5,9 +5,9 @@ package com.example.android.quakereport; /**
 import android.text.TextUtils;
 import android.util.Log;
 
-import org.json.JSONObject;
-import org.json.JSONException;
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -141,6 +141,7 @@ public final class QueryUtils {
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(earthquakeJSON)) {
             return null;
+
         }
 
         //* Create an empty ArrayList that we can start adding earthquakes to
@@ -152,6 +153,46 @@ public final class QueryUtils {
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(earthquakeJSON);
 
+            //Get a JSON array from the key "features
+            JSONArray earthquakeArray = baseJsonResponse.getJSONArray("features");
+
+            for (int i = 0; i < earthquakeArray.length(); i++) {
+
+                //Get a single earthquake at position i within the list of earthquakes
+                JSONObject currentEarthquake = earthquakeArray.getJSONObject(i);
+
+                //for each new earthquake created, extract the JSON object associated
+                //with the key " properties ", which represents a list of all properties
+                //for each earthquake.
+                JSONObject properties = currentEarthquake.getJSONObject("properties");
+
+                //Extract the value for the key called "mag"
+                double magnitude = properties.getDouble("mag");
+
+                //Extract the value for the key called " place "
+                String location = properties.getString("place");
+
+                //Extract the value for the key called "time "
+                long time = properties.getLong("time");
+
+                //Extract the value for the key called "url"
+                String url = properties.getString("url");
+
+                Earthquake earthquake = new Earthquake(magnitude, location, time, url);
+                earthquakes.add(earthquake);
+
+            }
+
+        } catch (JSONException e) {
+            Log.e(LOG_TAG, "JSONException problem ", e);
+            e.printStackTrace();
         }
+        return earthquakes;
     }
+
 }
+
+
+
+
+

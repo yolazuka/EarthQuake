@@ -72,7 +72,7 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
         // Get the original location string from the Earthquake object,
         // which can be in the format of "5km N of Cairo, Egypt" or "Pacific-Antarctic Ridge".
-        String originalLocation = currentEarthquake.getPlace();
+        String originalLocation = currentEarthquake.getLocation();
 
         // If the original location string (i.e. "5km N of Cairo, Egypt") contains
         // a primary location (Cairo, Egypt) and a location offset (5km N of that city)
